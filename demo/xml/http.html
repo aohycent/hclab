@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <title>Page Title</title>
+ </head>
+ <body>
+ <a href="#someLink" id="someLink" class="link-class">Some Link</a>
+ <a href="#someOtherLink" id="someOtherLink" class="link-class">Some Other Link</a>
+ <h1 id="header1" class="header-class">My First Heading</h1>
+ <p id="para1" class="para-class">My </p>
+ <textarea id="tvscreen"></textarea>
+ <script>
+ 	function loadXMLDoc(link) {
+	 	var xmlhttp;
+	 	if (window.XMLHttpRequest) {
+	 		xmlhttp = new XMLHttpRequest();
+	 	} else {
+	 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	 	}
+	
+	 	xmlhttp.open("GET", link, true);
+	 	xmlhttp.onreadystatechange = function() {
+	 		if (xmlhttp.readyState == 4) {
+	 			document.getElementById("tvscreen").innerHTML = xmlhttp.responseText;
+	 		}
+	 	};
+	 	xmlhttp.send();
+	}
+
+ 	var x=1;
+ 	
+ 	setInterval(function(){
+ 		x++;
+ 		var c = x + " ,";
+ 		document.title = document.location.hostname +'.'+ x;
+ 		document.getElementById("para1").append(c);
+ 		loadXMLDoc("http://aohycent.github.io/ohycent.png");
+ 	},4000);
+ </script>
+ </body>
+ </html>
